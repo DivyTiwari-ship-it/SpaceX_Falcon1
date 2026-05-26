@@ -10,7 +10,7 @@ Predicted whether **Falcon 9's first stage will successfully land**
 using real launch data pulled directly from the **SpaceX REST API**.
 
 Landing prediction matters because SpaceX saves $100M+ per launch  
-by reusing the first stage booster — if it lands, it flies again.
+by reusing the first stage booster — if it lands, it can fly again.
 
 ---
 
@@ -30,12 +30,12 @@ by reusing the first stage booster — if it lands, it flies again.
 | Feature | Description |
 |---------|-------------|
 | payload_category | Light / Medium / Heavy / Super Heavy |
-| site_success_rate | Historical success rate per launch site |
-| orbit_success_rate | Historical success rate per orbit type |
-| is_recent | 2018+ launches — SpaceX improved significantly |
-| reused | Was the booster previously flown? |
-| gridfins | Grid fins deployed for steering? |
-| legs | Landing legs deployed? |
+| site_success_rate | Historical success rate for each launch site |
+| orbit_success_rate | Historical success rate for each orbit type |
+| is_recent | Launches after 2018 — SpaceX reliability improved significantly |
+| reused | Whether the booster had flown before |
+| gridfins | Whether grid fins were deployed |
+| legs | Whether landing legs were deployed |
 
 ---
 
@@ -54,15 +54,37 @@ by reusing the first stage booster — if it lands, it flies again.
 
 ```bash
 git clone https://github.com/DivyTiwari-ship-it/SpaceX-Falcon9
+cd SpaceX-Falcon9
+
 pip install -r requirements.txt
+
 jupyter notebook spacex_eda_model.ipynb
 ```
 
 ---
 
 ## 💡 Key Learnings
-- Real API data pull karna — no Kaggle CSV used
-- Imbalanced data (142 success vs 11 fail) — fixed using SMOTE
-- XGBoost outperformed RandomForest on both accuracy and Fail F1
-- flight_number sabse important feature nikla — SpaceX time ke saath improve hua
-- Unseen 31 launches pe 93.55% accuracy — model generalizes well
+- Pulled real-world launch data directly from the SpaceX REST API instead of using static CSV datasets
+- Handled class imbalance (142 successful landings vs 11 failures) using SMOTE
+- XGBoost outperformed Random Forest in both overall accuracy and Fail F1 score
+- `flight_number` emerged as the most important feature, reflecting SpaceX’s improvement over time
+- Achieved 93.55% accuracy on 31 unseen launches, demonstrating strong model generalization
+
+---
+
+## 📈 Future Improvements
+- Add weather and wind-speed launch conditions
+- Deploy the model using Flask or FastAPI
+- Build an interactive Streamlit dashboard
+- Train on newer Falcon 9 launches for better real-world performance
+
+---
+
+## 🤝 Contributing
+Pull requests are welcome.  
+Feel free to fork the project and improve the model or visualization pipeline.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License.
