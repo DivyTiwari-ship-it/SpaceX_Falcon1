@@ -1,5 +1,10 @@
 # 🚀 SpaceX Falcon 9 Landing Prediction
 
+## 📓 View Full Notebook
+[Open in Kaggle](https://www.kaggle.com/code/divyanshtiwari01/spacex)
+
+
+
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![ML](https://img.shields.io/badge/ML-XGBoost-green)
 ![Accuracy](https://img.shields.io/badge/Accuracy-94%25-brightgreen)
